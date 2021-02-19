@@ -13,3 +13,20 @@ function countUniqueValues(arr) {
   }
   return left + 1;
 }
+
+// 2)  Write a function that takes in a non-empty string and that returns a boolean
+//   representing whether the string is a palindrome.
+
+function isPalindrome(string) {
+  // Write your code here.
+  let len = string.length;
+  let left = 0;
+  let right = len - 1;
+  while (left < right) {
+    if (string[left] === string[right]) {
+      left++;
+      right--;
+    } else return false;
+  }
+  return true;
+}
