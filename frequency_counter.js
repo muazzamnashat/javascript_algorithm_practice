@@ -1,7 +1,5 @@
-//  write a function called same which accepts two arrays. The function should return true if every
+// 1) write a function called same which accepts two arrays. The function should return true if every
 // value in the array has its corresponding value squared in the second array. The frequency of values must be same
-
-// same( [1,2,3],[4,1,9]) return true
 
 function same(arr1, arr2) {
   // if the length not same returns false
@@ -29,7 +27,7 @@ function same(arr1, arr2) {
   return true;
 }
 
-// Given two strings write a function to determine if the second string is an anagram of  the first. An anagram is a word formed by rearranging the letters of
+// 2) Given two strings write a function to determine if the second string is an anagram of  the first. An anagram is a word formed by rearranging the letters of
 // another word
 
 function validAnagram(first, second) {
@@ -56,4 +54,17 @@ function validAnagram(first, second) {
   }
 
   return true;
+}
+
+// 3) Implement a function called, areThereDuplicates which accepts a variable number of arguments, and checks whether
+//  there are any duplicates among the arguments passed in
+
+function areThereDuplicates(...arg) {
+  let obj = {};
+  for (let i = 0; i < arg.length; i++) {
+    let el = arg[i];
+    obj[el] = (obj[el] || 0) + 1;
+    if (obj[el] > 1) return true;
+  }
+  return false;
 }
