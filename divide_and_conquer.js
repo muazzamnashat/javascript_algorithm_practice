@@ -2,15 +2,18 @@
 // the index where the value is located. If not found return -1
 
 function search(array, item) {
+  let minIdx = 0;
   let maxIdx = array.length - 1;
-  let middleIdx = Math.floor(maxIdx / 2);
-  while (middleIdx < maxIdx) {
-    if (array[middleIdx] === item) return middleIdx;
-    if (array[middleIdx] < item)
-      middleIdx = Math.floor((maxIdx + middleIdx) / 2);
-    else if (array[middleIdx] > item) middleIdx = Math.floor(middleIdx / 2);
+
+  while (minIdx <= maxIdx) {
+    let middleIdx = Math.floor((minIdx + maxIdx) / 2);
+    let currentElement = array[middleIdx];
+
+    if (currentElement < item) minIdx = middleIdx + 1;
+    else if (currentElement > item) maxIdx = middleIdx - 1;
+    else return middleIdx;
   }
   return -1;
 }
 
-console.log(search([1, 2, 3, 4, 5, 6, 7], 1));
+console.log(search([1, 2, 3, 4, 5, 6, 7], 3));
