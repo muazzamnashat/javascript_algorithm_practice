@@ -30,3 +30,19 @@ function isPalindrome(string) {
   }
   return true;
 }
+
+// 3) Given two positive integers, find out
+// if the two numbers have the same frequency of digits.
+
+function sameFrequency(num1, num2) {
+  let strNum1 = num1.toString();
+  let strNum2 = num2.toString();
+  if (strNum1.length !== strNum2.length) return false;
+  let num1Obj = {};
+  let num2Obj = {};
+  for (let i = 0; i < strNum1.length; i++) {
+    num1Obj[strNum1[i]] = (num1Obj[strNum1[i]] || 0) + 1;
+    num2Obj[strNum2[i]] = (num2Obj[strNum2[i]] || 0) + 1;
+  }
+  return JSON.stringify(num2Obj) === JSON.stringify(num1Obj);
+}
