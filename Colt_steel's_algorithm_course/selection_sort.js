@@ -1,9 +1,10 @@
 // implement selection sort in JS
 
+const swap = (array, idx1, idx2) => {
+  [array[idx1], array[idx2]] = [array[idx2], array[idx1]];
+};
+
 const selectionSort = (arr) => {
-  const swap = (array, idx1, idx2) => {
-    [array[idx1], array[idx2]] = [array[idx2], array[idx1]];
-  };
   for (let i = 0; i < arr.length; i++) {
     let minIdx = i;
     for (let j = i + 1; j < arr.length; j++) {
