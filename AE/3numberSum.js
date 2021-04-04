@@ -1,0 +1,21 @@
+// Given an array and a target sum, return a list of triplets that add up to the sum.
+
+function threeNumberSum(array, targetSum) {
+  // Write your code here.
+  array.sort((a, b) => a - b);
+  let triplets = [];
+  for (let i = 0; i < array.length; i++) {
+    let left = i + 1;
+    let right = array.length - 1;
+    while (left < right) {
+      const currentSum = array[i] + array[left] + array[right];
+      if (currentSum === targetSum) {
+        triplets.push([array[i], array[left], array[right]]);
+        left++;
+        right--;
+      } else if (currentSum > targetSum) right--;
+      else left++;
+    }
+  }
+  return triplets;
+}
